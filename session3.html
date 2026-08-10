@@ -407,16 +407,30 @@
       </ul>
 
       <h3>5-5. 他の人の PR をレビューしてマージ（3分）</h3>
-      <p>受講者同士で PR の URL を交換し、互いの PR をレビューする。相手のリポジトリを clone して <code class="inline">claude --from-pr &lt;N&gt;</code> で起動すると、<strong>PR の文脈（差分・説明文・レビューコメント）を読み込んだ状態</strong> でセッションを開始できる。</p>
+      <p>受講者同士でペアを組み、互いの PR をレビューする。まず相手から次の2つの情報を教えてもらう:</p>
+      <ul>
+        <li><strong>リポジトリの URL</strong> — <code class="inline">https://github.com/&lt;相手のアカウント&gt;/laravel-chat-app</code></li>
+        <li><strong>レビューしてほしい PR の番号</strong> — 相手が 5-4 で作成した PR の番号</li>
+      </ul>
+      <div class="callout tip">
+        <strong>ヒント</strong>
+        PR の URL（<code class="inline">https://github.com/&lt;相手のアカウント&gt;/laravel-chat-app/pull/&lt;N&gt;</code>）を1つ教えてもらえば、リポジトリの URL と PR 番号の両方が分かる。
+      </div>
+      <p>教えてもらったリポジトリを clone し、<code class="inline">claude --from-pr &lt;N&gt;</code> で起動すると、<strong>PR の文脈（差分・説明文・レビューコメント）を読み込んだ状態</strong> でセッションを開始できる。</p>
 <pre><span class="prompt">$</span> git clone https://github.com/&lt;相手のアカウント&gt;/laravel-chat-app
 <span class="prompt">$</span> cd laravel-chat-app
-<span class="prompt">$</span> claude --from-pr &lt;N&gt;   <span class="comment"># N はレビューする PR 番号</span></pre>
+<span class="prompt">$</span> claude --from-pr &lt;N&gt;   <span class="comment"># N は教えてもらった PR 番号</span></pre>
 <pre>/review</pre>
+      <p>指摘があれば、レビュー結果を相手の PR にコメントとして残す:</p>
+      <div class="prompt-box">
+        <span class="label">あなたの指示</span>
+        <p>レビュー結果を PR にコメントして</p>
+      </div>
       <ul>
-        <li>指摘があれば PR にコメントを残す（「レビュー結果を PR にコメントして」）</li>
-        <li>PR の作者は <code class="inline">claude --from-pr &lt;自分のPR番号&gt;</code> で起動し、「レビューコメントに対応して」→ 修正 → push</li>
-        <li>問題がなくなったらマージ：</li>
+        <li><code class="inline">gh pr comment &lt;N&gt;</code> 相当が実行され、相手の PR にコメントが付く（public リポジトリなら、コラボレーターでなくてもコメントは書き込める）</li>
+        <li>PR の作者は <strong>自分のリポジトリ</strong> で <code class="inline">claude --from-pr &lt;自分のPR番号&gt;</code> を起動し、「レビューコメントに対応して」→ 修正 → push</li>
       </ul>
+      <p>対応が終わって問題がなくなったら、<strong>PR の作者（リポジトリのオーナー）が</strong> 自分の PR をマージする:</p>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
         <p>この PR をマージして</p>
