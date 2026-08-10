@@ -449,12 +449,7 @@
 
     <section id="cleanup">
       <h2 class="step"><span class="step-num">＊</span>後片付け：作成したリポジトリの削除</h2>
-      <p>5章で自分のアカウントに作成した <code class="inline">laravel-chat-app</code> はハンズオン用の練習リポジトリ。演習が終わったら削除しておく。</p>
-      <div class="prompt-box">
-        <span class="label">あなたの指示</span>
-        <p>このハンズオンで作成した自分の laravel-chat-app リポジトリを gh で削除して</p>
-      </div>
-      <p>手動で削除する場合は次のとおり。<code class="inline">gh repo delete</code> には追加の権限（<code class="inline">delete_repo</code> スコープ）が必要なので、先に <code class="inline">gh auth refresh</code> で付与してから実行する:</p>
+      <p>5章で自分のアカウントに作成した <code class="inline">laravel-chat-app</code> はハンズオン用の練習リポジトリ。演習が終わったら、以下のコマンドを手動で実行して削除しておく。<code class="inline">gh repo delete</code> には追加の権限（<code class="inline">delete_repo</code> スコープ）が必要なので、先に <code class="inline">gh auth refresh</code> で付与してから実行する:</p>
 <pre><span class="prompt">$</span> gh auth refresh -h github.com -s delete_repo
 <span class="prompt">$</span> gh repo delete &lt;自分のアカウント&gt;/laravel-chat-app --yes</pre>
       <div class="callout warn">
