@@ -173,7 +173,8 @@
       <li><a href="#sec4">4. コンテキスト管理</a></li>
       <li><a href="#sec5">5. 実践：チーム開発フロー</a></li>
       <li><a href="#sec6">6. 実践：チーム開発フローの自動化</a></li>
-      <li><a href="#sec7">7. まとめ・コース総括</a></li>
+      <li style="list-style:none;"><a href="#cleanup">＊ 後片付け：作成したリポジトリの削除</a></li>
+      <li value="7"><a href="#sec7">7. まとめ・コース総括</a></li>
     </ol>
   </nav>
 
@@ -360,10 +361,10 @@
 <span class="prompt">$</span> claude</pre>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
-        <p>gh でこのコードを自分のアカウントの新しい private リポジトリとして作成して push して</p>
+        <p>gh でこのコードを自分のアカウントの新しい public リポジトリとして作成して push して</p>
       </div>
       <ul>
-        <li><code class="inline">gh repo create laravel-chat-app --private --source=. --push</code> 相当が実行され、origin が自分のリポジトリに切り替わる</li>
+        <li><code class="inline">gh repo create laravel-chat-app --public --source=. --push</code> 相当が実行され、origin が自分のリポジトリに切り替わる</li>
       </ul>
 
       <h3>5-2. gh で Issue を作成（2分）</h3>
@@ -443,6 +444,26 @@
       <ul>
         <li>定型フローをスキル化すれば、<strong>チームの誰でも同じ品質のフローを1コマンドで再現</strong> できる</li>
         <li><code class="inline">.claude/skills/issue-flow/</code> をコミットすれば、3章で学んだとおりチーム全員に共有される</li>
+      </ul>
+    </section>
+
+    <section id="cleanup">
+      <h2 class="step"><span class="step-num">＊</span>後片付け：作成したリポジトリの削除</h2>
+      <p>5章で自分のアカウントに作成した <code class="inline">laravel-chat-app</code> はハンズオン用の練習リポジトリ。演習が終わったら削除しておく。</p>
+      <div class="prompt-box">
+        <span class="label">あなたの指示</span>
+        <p>このハンズオンで作成した自分の laravel-chat-app リポジトリを gh で削除して</p>
+      </div>
+      <p>手動で削除する場合は次のとおり。<code class="inline">gh repo delete</code> には追加の権限（<code class="inline">delete_repo</code> スコープ）が必要なので、先に <code class="inline">gh auth refresh</code> で付与してから実行する:</p>
+<pre><span class="prompt">$</span> gh auth refresh -h github.com -s delete_repo
+<span class="prompt">$</span> gh repo delete &lt;自分のアカウント&gt;/laravel-chat-app --yes</pre>
+      <div class="callout warn">
+        <strong>注意</strong>
+        リポジトリの削除は取り消せない。削除対象が <code class="inline">&lt;自分のアカウント&gt;/laravel-chat-app</code> であること（clone 元の <code class="inline">kimotuki/laravel-chat-app</code> や自分の別リポジトリを指定していないこと）を必ず確認してから実行する。
+      </div>
+      <ul>
+        <li>ローカルの clone が不要になったら、あわせて <code class="inline">cd .. &amp;&amp; rm -rf laravel-chat-app</code> で削除しておく</li>
+        <li>5-5 で clone した相手のリポジトリのローカルコピーも同様に削除してよい（リポジトリ本体の削除は作成した本人が行う）</li>
       </ul>
     </section>
 
