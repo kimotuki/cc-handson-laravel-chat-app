@@ -347,13 +347,26 @@
 
     <section id="sec5">
       <h2 class="step"><span class="step-num">5</span>実践：チーム開発フロー（12分）</h2>
-      <p>題材：チーム共有のリポジトリ（例：第2回で使った <code class="inline">agmsg</code> の fork から1つ選ぶ）に対して、<strong>Issue 起点の開発フロー</strong> を一周する。</p>
+      <p>題材：第1回で構築した <strong>Laravel × Prism チャットアプリ</strong>（<code class="inline">laravel-chat-app</code>）。clone して自分のリポジトリとして作成し、<strong>Issue 起点の開発フロー</strong> を一周する。</p>
       <figure class="shot">
         <img src="Image/issue-flow.svg" alt="Issue 起点の開発フロー — Issue 作成 → ブランチ作成 → fix 実装 → レビュー・PR → 相互レビュー・マージ">
         <figcaption>Issue 起点の開発フロー — マージ時の「Closes #N」で Issue が自動クローズし、フローが一周する</figcaption>
       </figure>
 
-      <h3>5-1. gh で Issue を作成（2分）</h3>
+      <h3>5-1. 題材を clone して自分のリポジトリを作成（2分）</h3>
+      <p>題材の <code class="inline">laravel-chat-app</code> を clone し、gh コマンドで <strong>自分のアカウントのリポジトリ</strong> として作成する。以降の Issue・PR はすべて自分のリポジトリ上で回す。</p>
+<pre><span class="prompt">$</span> git clone https://github.com/kimotuki/laravel-chat-app
+<span class="prompt">$</span> cd laravel-chat-app
+<span class="prompt">$</span> claude</pre>
+      <div class="prompt-box">
+        <span class="label">あなたの指示</span>
+        <p>gh でこのコードを自分のアカウントの新しいリポジトリとして作成して push して</p>
+      </div>
+      <ul>
+        <li><code class="inline">gh repo create laravel-chat-app --public --source=. --push</code> 相当が実行され、origin が自分のリポジトリに切り替わる</li>
+      </ul>
+
+      <h3>5-2. gh で Issue を作成（2分）</h3>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
         <p>「README に日本語のクイックスタートを追記してほしい」という Issue を gh で作成して</p>
@@ -363,11 +376,7 @@
         <li><strong>Issue 本文がそのまま Claude への要件になる</strong> — 再現手順や期待動作を丁寧に書くほど後工程の精度が上がる</li>
       </ul>
 
-      <h3>5-2. clone してブランチを作成（2分）</h3>
-      <p>チームのリポジトリを clone し、Issue 対応のブランチを切る。</p>
-<pre><span class="prompt">$</span> git clone &lt;チームのリポジトリURL&gt;
-<span class="prompt">$</span> cd &lt;リポジトリ名&gt;
-<span class="prompt">$</span> claude</pre>
+      <h3>5-3. ブランチを切って fix を実装（3分）</h3>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
         <p>Issue #1 に対応するブランチを切って</p>
@@ -375,8 +384,6 @@
       <ul>
         <li><code class="inline">gh issue view 1</code> で内容を確認し、<code class="inline">fix/issue-1</code> のようなブランチが作られる</li>
       </ul>
-
-      <h3>5-3. Issue に対する fix を実装（3分）</h3>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
         <p>Issue #1 を読んで、Plan Mode で対応方針を立ててから修正して</p>
@@ -399,8 +406,10 @@
       </ul>
 
       <h3>5-5. 他の人の PR をレビューしてマージ（3分）</h3>
-      <p>受講者同士で PR 番号を交換し、互いの PR をレビューする。<code class="inline">claude --from-pr &lt;N&gt;</code> で <strong>PR の文脈（差分・説明文・レビューコメント）を読み込んだ状態</strong> でセッションを開始できる。</p>
-<pre><span class="prompt">$</span> claude --from-pr &lt;N&gt;   <span class="comment"># N はレビューする PR 番号</span></pre>
+      <p>受講者同士で PR の URL を交換し、互いの PR をレビューする。相手のリポジトリを clone して <code class="inline">claude --from-pr &lt;N&gt;</code> で起動すると、<strong>PR の文脈（差分・説明文・レビューコメント）を読み込んだ状態</strong> でセッションを開始できる。</p>
+<pre><span class="prompt">$</span> git clone https://github.com/&lt;相手のアカウント&gt;/laravel-chat-app
+<span class="prompt">$</span> cd laravel-chat-app
+<span class="prompt">$</span> claude --from-pr &lt;N&gt;   <span class="comment"># N はレビューする PR 番号</span></pre>
 <pre>/review</pre>
       <ul>
         <li>指摘があれば PR にコメントを残す（「レビュー結果を PR にコメントして」）</li>
