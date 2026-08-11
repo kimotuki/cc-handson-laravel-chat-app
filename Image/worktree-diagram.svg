@@ -19,8 +19,8 @@
   <!-- worktree 1 -->
   <rect x="560" y="50" width="320" height="90" rx="10" fill="#ffffff" stroke="#d97757" stroke-width="1.5"/>
   <text x="720" y="78" font-size="13.5" font-weight="700" fill="#292524" text-anchor="middle">worktree ①（Terminal 1）</text>
-  <text x="720" y="101" font-size="11" fill="#78716c" text-anchor="middle">別ディレクトリ ＋ ブランチ feature-auth</text>
-  <text x="720" y="119" font-size="11" fill="#78716c" text-anchor="middle">claude --worktree feature-auth</text>
+  <text x="720" y="101" font-size="11" fill="#78716c" text-anchor="middle">別ディレクトリ ＋ ブランチ feature-a</text>
+  <text x="720" y="119" font-size="11" fill="#78716c" text-anchor="middle">claude --worktree feature-a</text>
 
   <!-- worktree 2 -->
   <rect x="560" y="170" width="320" height="90" rx="10" fill="#ffffff" stroke="#d97757" stroke-width="1.5"/>

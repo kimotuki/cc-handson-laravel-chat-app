@@ -468,14 +468,14 @@
       <h2 class="step"><span class="step-num">A</span>付録：git worktree で並行開発</h2>
       <p>6章まで早く終わった方向けの発展課題。<code class="inline">git worktree</code> は <strong>1つのリポジトリから複数の作業ディレクトリを切り出す</strong> Git の機能。ブランチごとに独立したディレクトリで作業できるので、「長めのタスクを別の Claude Code セッションに任せつつ、自分はメインの作業を続ける」という並行開発ができる。</p>
       <figure class="shot">
-        <img src="Image/worktree-diagram.svg" alt="git worktree の概念図 — 1つのリポジトリ（.git 本体を持つメインの作業ディレクトリ）から、feature-auth 用と bugfix-123 用の2つの worktree が切り出され、それぞれ別ターミナルの Claude Code セッションで動く">
+        <img src="Image/worktree-diagram.svg" alt="git worktree の概念図 — 1つのリポジトリ（.git 本体を持つメインの作業ディレクトリ）から、feature-a 用と bugfix-123 用の2つの worktree が切り出され、それぞれ別ターミナルの Claude Code セッションで動く">
         <figcaption>git worktree — .git（履歴）は共有しつつ、作業ディレクトリとブランチは独立。変更が衝突しない</figcaption>
       </figure>
 
       <h3>A-1. 一般的な使い方</h3>
       <p><code class="inline">--worktree</code> の一般的な使い方としては、複数のターミナルでそれぞれ別の worktree セッションを動かすパターンがある。</p>
-<pre><span class="comment"># Terminal 1: 認証機能の開発</span>
-<span class="prompt">$</span> claude --worktree feature-auth
+<pre><span class="comment"># Terminal 1: 機能 A の開発</span>
+<span class="prompt">$</span> claude --worktree feature-a
 
 <span class="comment"># Terminal 2: 同時にバグ修正</span>
 <span class="prompt">$</span> claude --worktree bugfix-123</pre>
