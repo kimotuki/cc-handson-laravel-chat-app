@@ -445,21 +445,21 @@
       <p>5章で回した「Issue 起点の開発フロー」は毎回同じ手順の繰り返し — つまり <strong>スキル化の好対象</strong>。フロー全体を1つのスキルに落とし込み、1コマンドで回せるようにする。</p>
       <div class="prompt-box">
         <span class="label">あなたの指示</span>
-        <p>issue-flow というスキルを作って。Issue 番号を引数で受け取り、<br>
+        <p>issue-review-flow というスキルを作って。Issue 番号を引数で受け取り、<br>
         1. gh issue view で Issue の内容を確認<br>
         2. fix/issue-&lt;番号&gt; ブランチを作成<br>
-        3. Plan Mode で対応方針を立ててから修正を実装<br>
+        3. 対応方針を立てて、確認してから修正を実装<br>
         4. /code-review でレビューし、妥当な指摘を修正<br>
         5. コミットして PR を作成（本文に Closes #&lt;番号&gt; を入れる）<br>
         という手順にして。</p>
       </div>
       <p>作成できたら、実行する前に生成されたスキルの内容を確認する。指示した5つの手順がそのまま入っているか、意図しない操作が紛れ込んでいないかをレビューしておく:</p>
-<pre><span class="prompt">$</span> cat .claude/skills/issue-flow/SKILL.md</pre>
+<pre><span class="prompt">$</span> cat .claude/skills/issue-review-flow/SKILL.md</pre>
       <p>内容に問題がなければ、新しい Issue を1つ作って実行してみる:</p>
-<pre>/issue-flow 2</pre>
+<pre>/issue-review-flow 2</pre>
       <ul>
         <li>定型フローをスキル化すれば、<strong>チームの誰でも同じ品質のフローを1コマンドで再現</strong> できる</li>
-        <li><code class="inline">.claude/skills/issue-flow/</code> をコミットすれば、3章で学んだとおりチーム全員に共有される</li>
+        <li><code class="inline">.claude/skills/issue-review-flow/</code> をコミットすれば、3章で学んだとおりチーム全員に共有される</li>
       </ul>
     </section>
 
