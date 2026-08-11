@@ -480,8 +480,14 @@
 <span class="comment"># Terminal 2: 同時にバグ修正</span>
 <span class="prompt">$</span> claude --worktree bugfix-123</pre>
       <p>それぞれのセッションは <strong>別ブランチ・別ディレクトリ</strong> で動くので、変更が衝突しない。</p>
-      <p>手動で worktree を作ってから Claude Code を起動する方法もある。</p>
-<pre><span class="prompt">$</span> git worktree add ../project-feature-a -b feature-a
+      <p>手動で worktree を作ってから Claude Code を起動する方法もある。新しいブランチを作る場合は <code class="inline">-b</code> を付け、既存のブランチを使う場合はブランチ名をそのまま指定する:</p>
+<pre><span class="comment"># 新しいブランチ feature-a を作って worktree を作成</span>
+<span class="prompt">$</span> git worktree add ../project-feature-a -b feature-a
+
+<span class="comment"># 既存のブランチ bugfix-123 から worktree を作成</span>
+<span class="prompt">$</span> git worktree add ../project-bugfix bugfix-123
+
+<span class="comment"># 作成した worktree に移動して Claude Code を起動</span>
 <span class="prompt">$</span> cd ../project-feature-a &amp;&amp; claude</pre>
       <p><code class="inline">--worktree</code> オプションは、この手順を自動化してくれるもの。</p>
 
