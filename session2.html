@@ -633,6 +633,10 @@ allowed-tools: Read, Edit, Bash
       <h2 class="step"><span class="step-num">5</span>SubAgent（サブエージェント）（12分）</h2>
 
       <h3>5-1. SubAgent とは（4分）</h3>
+      <figure class="shot">
+        <img src="Image/subagent-diagram.svg" alt="SubAgent の概念図 — メイン会話からレビュー用・探索用・テスト実行用のサブエージェントへタスクを依頼し、それぞれ独立したコンテキストで並列に動いて、メイン会話にはサマリーだけを返す">
+        <figcaption>SubAgent — タスクを別の独立したコンテキストに任せ、メイン会話にはサマリーだけが返る</figcaption>
+      </figure>
       <ul>
         <li><strong>サブエージェント</strong> ＝ メイン会話とは <strong>別の独立したコンテキスト</strong> で動く AI アシスタント。専用の <strong>システムプロンプト・ツール権限・モデル</strong> を持てる</li>
         <li>大量の出力が出る作業（全文検索・全テスト実行・複数ファイルのレビュー・ログ調査など）を任せても、<strong>メイン会話にはサマリーだけ返る</strong> — コンテキストを汚さない</li>
