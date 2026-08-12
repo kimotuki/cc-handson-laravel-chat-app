@@ -979,8 +979,6 @@ Figmaの「AI Chat」ファイルのExamples/AI Chatの内容をもとにHTML + 
 で実装して（リンク貼り付け）。色やスペーシングはデザインのトークンに合わせて。
 ```
 
-![Claude Code に実装を依頼するプロンプト](Image/figma-code-prompt.png)
-
 「（リンク貼り付け）」の部分には、Examples/AI Chat のフレームを選択した状態でコピーした **node-id 付き URL**（例: `https://www.figma.com/design/xxxx/AI-Chat?node-id=1-1402`）を貼る。貼り忘れても Claude が URL を求めてくるので、そこで渡せばよい:
 
 ![URL を渡すと Claude がデザインの取得を開始する](Image/figma-code-url.png)
