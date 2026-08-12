@@ -722,6 +722,10 @@ model: sonnet
       <h2 class="step"><span class="step-num">6</span>Hooks（12分）</h2>
 
       <h3>6-1. Hooks とは（4分）</h3>
+      <figure class="shot">
+        <img src="Image/hooks-diagram.svg" alt="Hooks の概念図 — Claude のツール実行の流れに PreToolUse（直前・ブロック）、PostToolUse（直後・フォーマッタ）、Stop（応答終了時・テスト実行）のフックが差し込まれ、終了コード 2 の出力は Claude にフィードバックされる">
+        <figcaption>Hooks — ツール実行の流れに自動でコマンドが差し込まれ、終了コード 2 の出力は Claude にフィードバックされる</figcaption>
+      </figure>
       <ul>
         <li>ツール実行の <strong>前後などに自動でコマンドを差し込む</strong> 仕組み（<code class="inline">settings.json</code> に定義）</li>
         <li>CLAUDE.md の指示と違い、<strong>ハーネスが機械的に実行する</strong> — Claude が「忘れる」ことがない</li>
