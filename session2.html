@@ -732,6 +732,15 @@ model: sonnet
         <tr><td><code class="inline">PostToolUse</code></td><td>ツール実行の直後</td><td>フォーマッタ・リンタの自動実行</td></tr>
         <tr><td><code class="inline">Stop</code></td><td>Claude が応答を終えたとき</td><td>テストの自動実行・完了通知</td></tr>
       </table>
+      <h4>主なユースケース</h4>
+      <ul>
+        <li><strong>危険な操作のブロック</strong>：<code class="inline">rm -rf</code>・<code class="inline">git push --force</code>・本番環境への操作などを <code class="inline">PreToolUse</code> で検知して止める</li>
+        <li><strong>依存パッケージの追加を制限</strong>：<code class="inline">npm install</code> などを検知し、人間の承認なしに依存を増やさせない（6-2 で実装する例）</li>
+        <li><strong>特定ファイルの保護</strong>：<code class="inline">.env</code> やマイグレーションなど触ってほしくないファイルへの書き込みを <code class="inline">PreToolUse</code> でブロック</li>
+        <li><strong>コード整形・静的解析の自動実行</strong>：ファイル編集後に <code class="inline">PostToolUse</code> で Prettier / ESLint / shfmt / ShellCheck などを走らせる</li>
+        <li><strong>テストの自動実行</strong>：<code class="inline">Stop</code> で応答が終わるたびにテストスイートを回し、壊れていれば Claude に差し戻す</li>
+        <li><strong>操作ログ・監査証跡の記録</strong>：<code class="inline">PreToolUse</code> / <code class="inline">PostToolUse</code> でコマンドの実行履歴をログファイルに記録する</li>
+      </ul>
       <div class="callout tip">
         <strong>💡 フィードバックの仕組み</strong>
         フックが <strong>終了コード 2</strong> で終わると、その出力が Claude にフィードバックされる。PreToolUse ならツール実行がブロックされ、PostToolUse なら <strong>Claude が出力を読んで自分で修正</strong> する — これが品質向上ループの鍵。

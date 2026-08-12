@@ -1088,6 +1088,15 @@ laravel-code-reviewer エージェントで app/Http/Controllers の変更をレ
 | `PostToolUse` | ツール実行の直後           | フォーマッタ・リンタの自動実行  |
 | `Stop`        | Claude が応答を終えたとき  | テストの自動実行・完了通知      |
 
+**主なユースケース**
+
+* **危険な操作のブロック**：`rm -rf`・`git push --force`・本番環境への操作などを `PreToolUse` で検知して止める
+* **依存パッケージの追加を制限**：`npm install` などを検知し、人間の承認なしに依存を増やさせない（6-2 で実装する例）
+* **特定ファイルの保護**：`.env` やマイグレーションなど触ってほしくないファイルへの書き込みを `PreToolUse` でブロック
+* **コード整形・静的解析の自動実行**：ファイル編集後に `PostToolUse` で Prettier / ESLint / shfmt / ShellCheck などを走らせる
+* **テストの自動実行**：`Stop` で応答が終わるたびにテストスイートを回し、壊れていれば Claude に差し戻す
+* **操作ログ・監査証跡の記録**：`PreToolUse` / `PostToolUse` でコマンドの実行履歴をログファイルに記録する
+
 > 💡 フックが **終了コード 2** で終わると、その出力が Claude にフィードバックされる。PreToolUse ならツール実行がブロックされ、PostToolUse なら **Claude が出力を読んで自分で修正** する — これが品質向上ループの鍵。
 
 #### 6-2. 例：パッケージの install / update をブロック（PreToolUse）（4分）
