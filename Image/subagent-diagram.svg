@@ -11,7 +11,7 @@
 
   <!-- メイン会話 -->
   <rect x="30" y="120" width="230" height="115" rx="10" fill="#f7e4d8" stroke="#d97757" stroke-width="1.5"/>
-  <text x="145" y="152" font-size="14" font-weight="700" fill="#292524" text-anchor="middle">メイン会話</text>
+  <text x="145" y="152" font-size="14" font-weight="700" fill="#292524" text-anchor="middle">メインセッション</text>
   <text x="145" y="177" font-size="10.5" fill="#78716c" text-anchor="middle">メインのコンテキストで対話を継続</text>
   <text x="145" y="195" font-size="10.5" fill="#78716c" text-anchor="middle">本筋の文脈が長持ちする</text>
 
@@ -38,5 +38,5 @@
   <text x="740" y="276" font-size="10.5" fill="#78716c" text-anchor="middle">全テストの実行ログを隔離</text>
 
   <!-- 注記 -->
-  <text x="455" y="328" font-size="11.5" fill="#78716c" text-anchor="middle">大量の出力（検索結果・diff・ログ）はサブエージェント側に隔離され、メイン会話にはサマリーだけが返る</text>
+  <text x="455" y="328" font-size="11.5" fill="#78716c" text-anchor="middle">大量の出力（検索結果・diff・ログ）はサブエージェント側に隔離され、メインセッションにはサマリーだけが返る</text>
 </svg>
